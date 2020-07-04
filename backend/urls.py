@@ -15,11 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import (UserCreateAPIView, UserLoginAPIView)
+from api.views import (FetchHistory,FetchCustomerHistory, ChangeOrderStatus, FetchOrders, PlaceOrder, FetchBranches,UserCreateAPIView, UserLoginAPIView, FetchItems, AddItem, DeleteItem, SaveInventory, SaveName, FetchWorkers)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('login/', UserLoginAPIView.as_view()),
-    path('signup/', UserCreateAPIView.as_view())
+    path('signup/', UserCreateAPIView.as_view()),
+    path('fetch_items/', FetchItems.as_view()),
+    path('add_item/', AddItem.as_view()),
+    path('delete_item/', DeleteItem.as_view()),
+    path('save_inventory/', SaveInventory.as_view()),
+    path('save_name/', SaveName.as_view()),
+    path('fetch_workers/', FetchWorkers.as_view()),
+    path('fetch_branches/', FetchBranches.as_view()),
+    path('place_order/', PlaceOrder.as_view()),
+    path('fetch_orders/', FetchOrders.as_view()),
+    path('change_order_status/', ChangeOrderStatus.as_view()),
+    path('fetch_history/', FetchHistory.as_view()),
+    path('fetch_customer_history/', FetchCustomerHistory.as_view()),
+
+
 ]
